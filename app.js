@@ -39,18 +39,18 @@ O_section1.appendChild(O_div);
 O_p.textContent = setInterval(() => {
     let I_value = getRandomIntIntoArray(A_temperatureValues);
 
+    // Attribution de la classe selon la valeur
     if (I_value < 0 && I_value > -10) {
         O_div.setAttribute("class", "blue-class");
-    }
-    if (I_value > 0 && I_value < 20) {
+    } else if (I_value >= 0 && I_value < 20) {
         O_div.setAttribute("class", "red-class");
-    }
-    if (I_value > 20 && I_value < 40) {
+    } else if (I_value >= 20 && I_value < 40) {
         O_div.setAttribute("class", "orange-class");
     } else {
         O_div.setAttribute("class", "green-class");
     }
 
+    // Attribution du message selon la valeur
     if (I_value > 30) {
         O_p1.textContent = "Caliente ! Vamos a la playa, ho hohohoho !!";
     } else if (I_value < 0) {
