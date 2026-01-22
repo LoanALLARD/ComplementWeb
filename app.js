@@ -28,8 +28,10 @@ function getRandomIntIntoArray(array) {
 let O_section1 = document.getElementById("section1");
 let O_div = document.createElement("div");
 let O_p = document.createElement("p");
+let O_p1 = document.createElement("p");
 
 // Ajoute les éléments enfants
+O_div.appendChild(O_p1);
 O_div.appendChild(O_p);
 O_section1.appendChild(O_div);
 
@@ -47,6 +49,14 @@ O_p.textContent = setInterval(() => {
         O_div.setAttribute("class", "orange-class");
     } else {
         O_div.setAttribute("class", "green-class");
+    }
+
+    if (I_value > 30) {
+        O_p1.textContent = "Caliente ! Vamos a la playa, ho hohohoho !!";
+    } else if (I_value < 0) {
+        O_p1.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
+    } else {
+        O_p1.textContent = "";
     }
 
     O_p.textContent = I_value;
