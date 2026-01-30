@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+}
+
+.blue-class {
+    border: 2px solid blue;
+}
+
+.green-class {
+    border: 2px solid green;
+}
+
+.orange-class {
+    border: 2px solid orange;
+}
+
+.red-class {
+    border: 2px solid red;
+}

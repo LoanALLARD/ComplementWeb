@@ -36,28 +36,37 @@ O_div.appendChild(O_p);
 O_section1.appendChild(O_div);
 
 // Change le contenu du <p> toutes les 2 secondes
-O_p.textContent = setInterval(() => {
+O_p.textContent = ""; // Initialisation du contenu
+setInterval(() => {
     let I_value = getRandomIntIntoArray(A_temperatureValues);
 
+    // Mise à jour de la température affichée dans le carré
+    O_p.textContent = `${I_value}°C`;
+
     // Attribution de la classe selon la valeur
-    if (I_value < 0 && I_value > -10) {
+    if (I_value >= -10 && I_value < 0) {
         O_div.setAttribute("class", "blue-class");
-    } else if (I_value >= 0 && I_value < 20) {
-        O_div.setAttribute("class", "red-class");
-    } else if (I_value >= 20 && I_value < 40) {
-        O_div.setAttribute("class", "orange-class");
-    } else {
-        O_div.setAttribute("class", "green-class");
-    }
-
-    // Attribution du message selon la valeur
-    if (I_value > 30) {
-        O_p1.textContent = "Caliente ! Vamos a la playa, ho hohohoho !!";
-    } else if (I_value < 0) {
         O_p1.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
-    } else {
-        O_p1.textContent = "";
+    } else if (I_value >= 0 && I_value < 20) {
+        O_div.setAttribute("class", "green-class");
+        O_p1.textContent = ""; // Efface le message précédent
+    } else if (I_value >= 20 && I_value < 30) {
+        O_div.setAttribute("class", "orange-class");
+        O_p1.textContent = ""; // Efface le message précédent
+    } else if (I_value >= 30 && I_value <= 40) {
+        O_div.setAttribute("class", "red-class");
+        O_p1.textContent = "Caliente ! Vamos a la playa, ho hoho hoho !!";
     }
 
-    O_p.textContent = I_value;
+    // Affichage de l'historique (ajout en bas de la liste)
+    let O_history = document.getElementById("history");
+    if (!O_history) {
+        O_history = document.createElement("ul");
+        O_history.id = "history";
+        O_section1.appendChild(O_history);
+    }
+    let O_li = document.createElement("li");
+    O_li.textContent = `${I_value}°C`;
+    O_history.appendChild(O_li);
+    O_history.scrollTop = O_history.scrollHeight; // Scroll automatique vers le bas
 }, 2000);
