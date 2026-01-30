@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="tabs">
+        <h3 id="tablist-1">Températures</h3>
+        <div role="tablist" aria-labelledby="tablist-1" class="manual">
+            <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                <span class="focus">Température actuelle</span>
+            </button>
+            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
+                <span class="focus">Historique des températures</span>
+            </button>
+        </div>
+
+        <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+            <p id="current-temp"></p>
+        </div>
+        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+            <p id="history"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="temperature.js"></script>
+    
+</body>
+</html>
