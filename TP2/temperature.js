@@ -7,7 +7,7 @@ function random(min, max) {
     return num;
 }
 
-// Génère un nimbre d'entiers 'iterations' dans A_temperatureValues
+// Génère un nombre d'entiers 'iterations' dans A_temperatureValues
 function generateInts(iterations) {
     for (let I_i = 0; I_i < iterations; ++I_i) {
         A_temperatureValues[I_i] = random(-20, 40);
@@ -25,41 +25,29 @@ function getRandomIntIntoArray(array) {
 }
 
 // Récupération et création des différents éléments
+/*
 let O_section1 = document.getElementById("section1");
 let O_div = document.createElement("div");
-let O_p = document.createElement("p");
-let O_p1 = document.createElement("p");
+let O_p = document.createElement("p"); */
+
+let O_pTab1 = document.getElementById("current-temp");
 
 // Ajoute les éléments enfants
-O_div.appendChild(O_p1);
+/*
 O_div.appendChild(O_p);
 O_section1.appendChild(O_div);
+*/
 
 // Change le contenu du <p> toutes les 2 secondes
-O_p.textContent = ""; // Initialisation du contenu
+O_pTab1.textContent = ""; // Initialisation du contenu
 setInterval(() => {
     let I_value = getRandomIntIntoArray(A_temperatureValues);
 
     // Mise à jour de la température affichée dans le carré
-    O_p.textContent = `${I_value}°C`;
-
-    // Attribution de la classe selon la valeur
-    if (I_value >= -10 && I_value < 0) {
-        O_div.setAttribute("class", "blue-class");
-        O_p1.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
-    } else if (I_value >= 0 && I_value < 20) {
-        O_div.setAttribute("class", "green-class");
-        O_p1.textContent = ""; // Efface le message précédent
-    } else if (I_value >= 20 && I_value < 30) {
-        O_div.setAttribute("class", "orange-class");
-        O_p1.textContent = ""; // Efface le message précédent
-    } else if (I_value >= 30 && I_value <= 40) {
-        O_div.setAttribute("class", "red-class");
-        O_p1.textContent = "Caliente ! Vamos a la playa, ho hoho hoho !!";
-    }
+    O_pTab1.textContent = `${I_value}°C`;
 
     // Affichage de l'historique (ajout en bas de la liste)
-    let O_history = document.getElementById("history");
+    let O_history = document.getElementById("history-tab-text");
     if (!O_history) {
         O_history = document.createElement("ul");
         O_history.id = "history";
